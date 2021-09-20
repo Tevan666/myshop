@@ -26,5 +26,8 @@ npm run lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
 ![image](https://github.com/Tevan666/myshop/blob/master/images/mall1.png)
+<img src="https://github.com/Tevan666/myshop/blob/master/images/mall1.png" width="200px" height="400px">
