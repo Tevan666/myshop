@@ -6,7 +6,7 @@ const Category = () => import('../views/category/Category')
 const Cart = () => import('../views/cart/Cart')
 const Profile = () => import('../views/profile/Profile')
 const Detail = () => import('../views/detail/Detail')
-const logined = () => import('../views/profile/childProfile/logined')
+const logined = () => import('../views/logined/logined')
 
 // 1.安装插件
 Vue.use(VueRouter)
@@ -38,7 +38,7 @@ const routes = [
     component: Detail
   },
   {
-    path: '/profile/logined',
+    path: '/logined',
     component: logined
   }
 ]
@@ -48,11 +48,20 @@ const router = new VueRouter({
 })
 //挂载路由导航守卫
 router.beforeEach((to, from, next) => {
+  const tokenStr = window.sessionStorage.getItem('token') //获取token 
+
   //to要访问的路径 from从哪个路径跳转而来 next是一个函数，表示放行
   if(to.path ==='/profile') {
-    return next();}
-  const tokenStr = window.sessionStorage.getItem('token') //获取token 
-  if(!tokenStr) {return next('/profile')}
+    if(tokenStr) {
+      return next('/logined')
+    }
+    return next();
+  }
+
+  if(!tokenStr) {
+    return next('/profile')
+  }
+
   next()
 })
 

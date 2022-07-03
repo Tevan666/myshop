@@ -11,7 +11,7 @@
       class="admin input-with-select"
     >
     </el-input>
-    
+
     <el-input placeholder="请输入密码" v-model="Info.password" show-password class="password">
        <template slot="append">忘记密码</template>
     </el-input>
@@ -21,7 +21,7 @@
       </el-button>
     </div>
     <el-divider content-position="left" class="other-login">
-      <p>其他登陆方式</p> 
+      <p>其他登陆方式</p>
     </el-divider>
     <div class="opts">
       <a href="#">
@@ -36,7 +36,7 @@
         <img src="~assets/img/profile/ios.png" alt="">
         <p>苹果</p>
       </a>
-      
+
     </div>
     <el-checkbox v-model="checked" class="deatil"> 登录即代表您已同意 用户隐私政策</el-checkbox>
     </el-form>
@@ -70,7 +70,7 @@
       },
       login() {
         let _this = this;
-        if(this.phone === '' || this.password === '') {
+        if(this.Info.phone === '' || this.Info.password === '') {
           this.$notify({
           title: '错误',
           message: '手机号或密码不能为空',
@@ -90,7 +90,7 @@
               });
               //登陆成功后，路由跳转到首页
                 setTimeout(() => {
-                  this.$router.replace('/profile/logined');
+                  this.$router.replace('/logined');
                 }, 1000);
                 console.log(res.data.data.token);
                 //token只在当前页面打开期间生效。将token保存在sessionStorage
@@ -115,7 +115,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    touch-action: none; 
+    touch-action: none;
     flex-wrap: wrap;
     margin-top: 50px;
   }
@@ -124,7 +124,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    touch-action: none; 
+    touch-action: none;
     flex-wrap: wrap;
     width: 100%;
   }
@@ -136,7 +136,7 @@
     margin-top: 20px;
   }
   .IfChecked {
-    touch-action: none; 
+    touch-action: none;
     width: 100%;
     display: flex;
     justify-content: center;
